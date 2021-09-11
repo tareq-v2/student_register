@@ -1,0 +1,81 @@
+/* RESPONSIVE CSS */
+@media only screen
+and (min-device-width : 320px)
+and (max-device-width : 480px) {
+    .main .heading::after{
+        display: none;
+    }
+}
+
+@media only screen
+and (min-width : 321px) {
+    .main .heading::after{
+        display: none;
+    }
+}
+
+@media only screen
+and (max-width : 320px) {
+ .main .heading::after{
+        display: none;
+    }
+}
+ 
+@media only screen
+and (min-device-width : 768px)
+and (max-device-width : 1024px) {
+    .main .heading::after{
+        display: none;
+    }
+}
+
+@media only screen
+and (min-device-width : 768px)
+and (max-device-width : 1024px)
+and (orientation : landscape) {
+    .main .heading::after{
+        display: none;
+    }
+
+}
+
+@media only screen
+and (min-device-width : 768px)
+and (max-device-width : 1024px)
+and (orientation : portrait) {
+    .main .heading::after{
+        display: none;
+    }
+}
+
+@media only screen
+and (min-width : 1224px) {
+    .main .heading::after{
+        display: block;
+    }
+}
+
+@media only screen
+and (min-width : 1824px) {
+
+}
+
+@media only screen
+and (min-device-width : 320px)
+and (max-device-width : 568px) {
+
+}
+ 
+@media only screen
+and (min-device-width : 320px)
+and (max-device-width : 568px)
+and (orientation : landscape) {
+
+}
+ 
+@media only screen
+and (min-device-width : 320px)
+and (max-device-width : 568px)
+and (orientation : portrait) {
+
+}
