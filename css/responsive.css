@@ -2,30 +2,30 @@
 @media only screen
 and (min-device-width : 320px)
 and (max-device-width : 480px) {
-    .main .heading::after{
-        display: none;
-    }
+  h2{
+      font-size: 12px;
+  }
 }
 
 @media only screen
 and (min-width : 321px) {
-    .main .heading::after{
-        display: none;
+    h2{
+        font-size: 12px;
     }
 }
 
 @media only screen
 and (max-width : 320px) {
- .main .heading::after{
-        display: none;
+    h2{
+        font-size: 12px;
     }
 }
  
 @media only screen
 and (min-device-width : 768px)
 and (max-device-width : 1024px) {
-    .main .heading::after{
-        display: none;
+    h2{
+        font-size: 12px;
     }
 }
 
