@@ -11,7 +11,8 @@ $db = new dbconnection();
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/responsive.css">
-    <title>Registeedr Students</title>
+    <title>Registered Students</title>
+    
   </head>
   <body>
   <div class="container-fluid">
@@ -39,6 +40,7 @@ $db = new dbconnection();
 			</div>
 		</div>
 	</div>
+    <div style="overflow-x: scroll;">
     <table class="table table-bordered">
         <tr>
             <td>ID</td>
@@ -65,9 +67,9 @@ $db = new dbconnection();
             <td>Mobile</td>
             <td>Student ID</td>
             <td>Student UID</td>
-            <td>Student Image</td>
             <td>Hostel</td>
             <td>Transport Service</td>
+            <td>Student Image</td>
             <td>Action</td>
         </tr>
         <?php
@@ -99,18 +101,19 @@ $db = new dbconnection();
             <td><?php echo $fetch[21];?></td>
             <td><?php echo $fetch[22];?></td>
             <td><?php echo $fetch[23];?></td>
-            <td><img src="img/studentImg/<?php echo $fetch[22];?>.jpg" height="50" width="50"></td>
             <td><?php echo $fetch[24];?></td>
             <td><?php echo $fetch[25];?></td>
+            <td><img src="img/studentImg/<?php echo $fetch[22];?>.jpg" height="50" width="50"></td>
             <td>
-                <a href="index.php?edit=<?php echo $fetch[0];?>" class="btn btn-info">Edit</a>
-                <a href="index.php?del=<?php echo $fetch[0];?>" type="button" class="btn btn-warning">Delete</a>
+                <a href="index.php?edit=<?php echo $fetch[0];?>" class="btn btn-sm btn-info" style="display: block; margin-bottom: 4px;">Edit</a>
+                <a href="index.php?del=<?php echo $fetch[0];?>" type="button" class="btn btn-sm btn-warning">Delete</a>
             </td>
         </tr>
         <?php
         }
         ?>
     </table>
+    </div>
    </div>
    <footer style="background-color: #000; padding: 10px 0; margin-top: 20px;">
   <h6 class="text-center" style="color: #fff;">Developed By <span style="color: orange; font-weight: bold;">SBIT</span></h6>

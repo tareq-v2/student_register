@@ -2,7 +2,7 @@
 
 include('database.php');
 $db = new dbconnection();
-$fetch[0] = $fetch[1] = $fetch[2] = $fetch[3] =  $fetch[4] = $fetch[5] = $fetch[6] = $fetch[7] = $fetch[8] = $fetch[9] = $fetch[10] = $fetch[11] = $fetch[12] = $fetch[13] = $fetch[14] = $fetch[15] = $fetch[16] = $fetch[17] = $fetch[18] = $fetch[19] = $fetch[20] = $fetch[21] = $fetch[22] = $fetch[23] = $fetch[24] = "";
+$fetch[0] = $fetch[1] = $fetch[2] = $fetch[3] =  $fetch[4] = $fetch[5] = $fetch[6] = $fetch[7] = $fetch[8] = $fetch[9] = $fetch[10] = $fetch[11] = $fetch[12] = $fetch[13] = $fetch[14] = $fetch[15] = $fetch[16] = $fetch[17] = $fetch[18] = $fetch[19] = $fetch[20] = $fetch[21] = $fetch[22] = $fetch[23] = $fetch[24] = $fetch[26] = "";
 
 if(isset($_POST["add"])){
   $admissionDate = $_POST['admissionDate'];
@@ -41,6 +41,7 @@ if(isset($_POST["add"])){
   }
 }
 if(isset($_POST["update"])){
+  $id = $_POST['hiddenId'];
   $admissionDate = $_POST['admissionDate'];
   $birthId = $_POST['birthId'];
   $studentName = $_POST['studentName'];
@@ -67,7 +68,7 @@ if(isset($_POST["update"])){
   $hostel = $_POST['hostel'];
   $transfer = $_POST['transfer'];
 
-  $sql = $db->link->query("REPLACE INTO `register_form`(`admission_date`, `birth_id`, `student_name`, `father_name`, `father_id`, `mother_name`, `mother_id`, `religion`, `gender`, `date_of_birth`, `nationality`, `present_address`, `parmanent_address`, `admission_date_age`, `prev_school`, `prev_class`, `desire_class`, `desire_group`, `session`, `tc_no`, `mobile`, `student_id`, `student_uid`, `hostel`, `transfer`) VALUES ('$admissionDate','$birthId','$studentName','$fatherName','$fatherId','$motherName','$motherId','$religion','$gender','$birthDate','$nationality','$presentAddress','$parmanentAddress','$ageOfAdmission','$prevSchool','$prevClass','$desireClass','$desireGroup','$session','$tcNo','$mobile','$studentId','$studentUid','$hostel','$transfer')");
+  $sql = $db->link->query("UPDATE `register_form` SET `admission_date`='$admissionDate',`birth_id`='$birthId',`student_name`='$studentName',`father_name`='$fatherName',`father_id`='$fatherId',`mother_name`='$motherName',`mother_id`='$motherId',`religion`='$religion',`gender`='$gender',`date_of_birth`='$birthDate',`nationality`='$nationality',`present_address`='$presentAddress',`parmanent_address`='$parmanentAddress',`admission_date_age`='$ageOfAdmission',`prev_school`='$prevSchool',`prev_class`='$prevClass',`desire_class`='$desireClass',`desire_group`='$desireGroup',`session`='$session',`tc_no`='$tcNo',`mobile`='$mobile',`student_id`='$studentId',`student_uid`='$studentUid',`hostel`='$hostel',`transfer`='$transfer' WHERE  `id` = '$id'");
   if($sql){   
     $path = "img/studentImg/$studentId.jpg";
     move_uploaded_file($_FILES['student_image']['tmp_name'], $path);
@@ -77,11 +78,14 @@ if(isset($_POST["update"])){
   }
 }
 
+
+
 if(isset($_GET["edit"]))
-  {
-    $select = $db->link->query("SELECT * FROM register_form where `id` = '".$_GET["edit"]."'");
-    $fetch=$select->fetch_array(); 
-  }
+{
+$select = $db->link->query("SELECT * FROM register_form where `id` = '".$_GET["edit"]."'");
+$fetch=$select->fetch_array(); 
+}
+
 
 if(isset($_GET["del"]))
 {
@@ -158,6 +162,7 @@ if(isset($_GET["del"]))
         <!-- row 1 -->
         <div class="row">
           <div class="col-12 col-md-4">
+             <input type="number" class="form-control d-none" name="hiddenId" value="<?php print $fetch[0] ?>">
             <label for="admissionDate">Admission Date:</label>
           </div>
           <div class="col-12 col-md-8">
@@ -382,43 +387,33 @@ if(isset($_GET["del"]))
             <input type="file" class="form-control" name="student_image">
           </div>
         </div>
-        <!-- row 23 -->
+        <!-- Last Row -->
         <div class="row">
           <div class="col-12 col-md-4">
             <label for="hostel">Hostel:</label>
           </div>
           <div class="col-12 col-md-3">
-          <div class="form-group">
-              <select class="form-control" id="hostel" name="hostel">
-                <option value="yes">Yes</option>
-                <option value="no">No</option>
-              </select>
-            </div>
+            <input type="text" class="form-control" placeholder='Yes or No' name="hostel">
           </div>
+          
           <div class="col-12 col-md-2">
             <label for="transfer">Transport Service:</label>
           </div>
           <div class="col-12 col-md-3">
-            <div class="form-group">
-                <select class="form-control" id="transfer" name="transfer">
-                  <option value="yes">Yes</option>
-                  <option value="no">No</option>
-                </select>
-              </div>
-            </div>
+          <input type="text" class="form-control" placeholder='Yes or No' name="transfer">
           </div>
         </div>
         <div class="container">
         <div class="row justify-content-end">
           <div class="col-12 col-md-4">
-            <button class="btn btn-info btn-block" style="width: 100%; margin: 8px 0;" name="add">Submit</button>
+            <button class="btn btn-info btn-block" style="width: 100%; margin: 8px 0; border-radius: 0 !important;" name="add">Submit</button>
           </div>
         </div>
         </div>
         <div class="row">
 				<div class="col-12" style="text-align: center;">
-					<button class="btn btn-success" name="update">Update</button>
-					<input type="button" class="btn btn-info" name="show" onclick="return viewStudent()" value="View">
+					<button style="border-radius: 0 !important;" class="btn btn-success" name="update">Update</button>
+          <a type="button" style='border-radius: 0 !important;' class="btn btn-info" name="show" target="_blank" href="viewstudent.php">View</a>
 				</div>
 			</div>
     </form>
@@ -427,11 +422,6 @@ if(isset($_GET["del"]))
   <h6 class="text-center" style="color: #fff;">Developed By <span style="color: orange; font-weight: bold;">SBIT</span></h6>
 </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-  function viewStudent()
-		{
-      window.location.href = 'viewstudent.php';
-		}
-</script>
+    
   </body>
 </html>
