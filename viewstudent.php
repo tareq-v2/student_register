@@ -11,7 +11,7 @@ $db = new dbconnection();
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/responsive.css">
-    <title>Registeedr Students</title>
+    <title>Register Students</title>
   </head>
   <body>
   <div class="container-fluid">
@@ -40,34 +40,49 @@ $db = new dbconnection();
 		</div>
 	</div>
     <table class="table table-bordered">
+      <style>
+        td{
+          font-size: 11px;
+        }
+      </style>
         <tr>
             <td>ID</td>
             <td>Admission Date</td>
-            <td>Birth ID No</td>
-            <td>Student Name</td>
+            <td>Birth Reg. No</td>
+            <td>Student's Name</td>
             <td>Father's Name</td>
-            <td>Father's ID</td>
             <td>Mother's Name</td>
-            <td>Mother's ID</td>
             <td>Religion</td>
             <td>Gender</td>
             <td>Date of Birth</td>
             <td>Nationality</td>
-            <td>Present Address</td>
-            <td>Parmanent Address</td>
+            <td>House</td>
+            <td>Village</td>
+            <td>Post Office</td>
+            <td>Post Code</td>
+            <td>Thana</td>
+            <td>District</td>
+            <td>Parmanent House</td>
+            <td>Parmanent Village</td>
+            <td>Parmanent Post Office</td>
+            <td>Parmanent Post Code</td>
+            <td>Parmanent Thana</td>
+            <td>Parmanent District</td>
             <td>Age of Admission Date</td>
             <td>Previous School Name</td>
             <td>Previous Class Name</td>
             <td>Admission Desire Class</td>
             <td>Admission Desire Group</td>
             <td>Session</td>
-            <td>T.C No and Date</td>
             <td>Mobile</td>
             <td>Student ID</td>
             <td>Student UID</td>
-            <td>Student Image</td>
             <td>Hostel</td>
             <td>Transport Service</td>
+            <td>Father's ID</td>
+            <td>Mother's ID</td>
+            <td>T.C</td>
+            <td>Student Image</td>
             <td>Action</td>
         </tr>
         <?php
@@ -76,7 +91,7 @@ $db = new dbconnection();
         {?>
         <tr>
             <td><?php echo $fetch[0];?></td>
-            <td><div style="height: 80px; overflow-y: scroll;"><?php echo $fetch[1];?></div></td>
+            <td><div><?php echo $fetch[1];?></div></td>
             <td><?php echo $fetch[2];?></td>
             <td><?php echo $fetch[3];?></td>
             <td><?php echo $fetch[4];?></td>
@@ -99,12 +114,23 @@ $db = new dbconnection();
             <td><?php echo $fetch[21];?></td>
             <td><?php echo $fetch[22];?></td>
             <td><?php echo $fetch[23];?></td>
-            <td><img src="img/studentImg/<?php echo $fetch[22];?>.jpg" height="50" width="50"></td>
             <td><?php echo $fetch[24];?></td>
             <td><?php echo $fetch[25];?></td>
+            <td><?php echo $fetch[26];?></td>
+            <td><?php echo $fetch[27];?></td>
+            <td><?php echo $fetch[28];?></td>
+            <td><?php echo $fetch[29];?></td>
+            <td><?php echo $fetch[30];?></td>
+            <td><?php echo $fetch[31];?></td>
+            <td><?php echo $fetch[32];?></td>
+            <td><img src="img/fatherId/<?php echo $fetch[0];?>.jpg" height="50" width="50"></td>
+            <td><img src="img/motherId/<?php echo $fetch[0];?>.jpg" height="50" width="50"></td>
+            <td><img src="img/tc/<?php echo $fetch[0];?>.jpg" height="50" width="50"></td>
+            <td><img src="img/studentImg/<?php echo $fetch[22];?>.jpg" height="50" width="50"></td>
             <td>
-                <a href="index.php?edit=<?php echo $fetch[0];?>" class="btn btn-info">Edit</a>
-                <a href="index.php?del=<?php echo $fetch[0];?>" type="button" class="btn btn-warning">Delete</a>
+                <a href="index.php?edit=<?php echo $fetch[0];?>" style="display: block; margin-bottom: 2px;" class="btn btn-sm btn-info">Edit</a>
+                <a href="index.php?edit=<?php echo $fetch[0];?>" style="display: block; margin-bottom: 2px;" class="btn btn-sm btn-info">View</a>
+                <a href="index.php?del=<?php echo $fetch[0];?>" type="button" class="btn btn-sm btn-warning">Delete</a>
             </td>
         </tr>
         <?php

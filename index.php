@@ -2,103 +2,13 @@
 
 include('database.php');
 $db = new dbconnection();
-$fetch[0] = $fetch[1] = $fetch[2] = $fetch[3] =  $fetch[4] = $fetch[5] = $fetch[6] = $fetch[7] = $fetch[8] = $fetch[9] = $fetch[10] = $fetch[11] = $fetch[12] = $fetch[13] = $fetch[14] = $fetch[15] = $fetch[16] = $fetch[17] = $fetch[18] = $fetch[19] = $fetch[20] = $fetch[21] = $fetch[22] = $fetch[23] = $fetch[24] = "";
+$fetch[0] = $fetch[1] = $fetch[2] = $fetch[3] =  $fetch[4] = $fetch[5] = $fetch[6] = $fetch[7] = $fetch[8] = $fetch[9] = $fetch[10] = $fetch[11] = $fetch[12] = $fetch[13] = $fetch[14] = $fetch[15] = $fetch[16] = $fetch[17] = $fetch[18] = $fetch[19] = $fetch[20] = $fetch[21] = $fetch[22] = $fetch[23] = $fetch[24] =$fetch[25] = $fetch[26] = $fetch[27] = $fetch[28] = $fetch[29] = $fetch[30] = $fetch[31] = $fetch[32] = "";
 
-if(isset($_POST["add"])){
-  $admissionDate = $_POST['admissionDate'];
-  $birthId = $_POST['birthId'];
-  $studentName = $_POST['studentName'];
-  $fatherName = $_POST['fatherName'];
-  $fatherId = $_POST['fatherId'];
-  $motherName = $_POST['motherName'];
-  $motherId = $_POST['motherId'];
-  $religion = $_POST['religion'];
-  $gender = $_POST['gender'];
-  $birthDate = $_POST['birthDate'];
-  $nationality = $_POST['nationality'];
-  $presentAddress = $_POST['presentAddress'];
-  $parmanentAddress = $_POST['parmanentAddress'];
-  $ageOfAdmission = $_POST['ageOfAdmission'];
-  $prevSchool = $_POST['prevSchool'];
-  $prevClass = $_POST['prevClass'];
-  $desireClass = $_POST['desireClass'];
-  $desireGroup = $_POST['desireGroup'];
-  $session = $_POST['session'];
-  $tcNo = $_POST['tcNdate'];
-  $mobile = $_POST['mobile'];
-  $studentId = $_POST['studentId'];
-  $studentUid = $_POST['studentUid'];
-  $hostel = $_POST['hostel'];
-  $transfer = $_POST['transfer'];
 
-  $sql = $db->link->query("INSERT INTO `register_form`(`admission_date`, `birth_id`, `student_name`, `father_name`, `father_id`, `mother_name`, `mother_id`, `religion`, `gender`, `date_of_birth`, `nationality`, `present_address`, `parmanent_address`, `admission_date_age`, `prev_school`, `prev_class`, `desire_class`, `desire_group`, `session`, `tc_no`, `mobile`, `student_id`, `student_uid`, `hostel`, `transfer`) VALUES ('$admissionDate','$birthId','$studentName','$fatherName','$fatherId','$motherName','$motherId','$religion','$gender','$birthDate','$nationality','$presentAddress','$parmanentAddress','$ageOfAdmission','$prevSchool','$prevClass','$desireClass','$desireGroup','$session','$tcNo','$mobile','$studentId','$studentUid','$hostel','$transfer')");
-  if($sql){   
-    $path = "img/studentImg/$studentId.jpg";
-    move_uploaded_file($_FILES['student_image']['tmp_name'], $path);
-    echo "Add Successfully";
-  }else{
-    echo "Add Unsuccessful";
-  }
-}
-if(isset($_POST["update"])){
-  $admissionDate = $_POST['admissionDate'];
-  $birthId = $_POST['birthId'];
-  $studentName = $_POST['studentName'];
-  $fatherName = $_POST['fatherName'];
-  $fatherId = $_POST['fatherId'];
-  $motherName = $_POST['motherName'];
-  $motherId = $_POST['motherId'];
-  $religion = $_POST['religion'];
-  $gender = $_POST['gender'];
-  $birthDate = $_POST['birthDate'];
-  $nationality = $_POST['nationality'];
-  $presentAddress = $_POST['presentAddress'];
-  $parmanentAddress = $_POST['parmanentAddress'];
-  $ageOfAdmission = $_POST['ageOfAdmission'];
-  $prevSchool = $_POST['prevSchool'];
-  $prevClass = $_POST['prevClass'];
-  $desireClass = $_POST['desireClass'];
-  $desireGroup = $_POST['desireGroup'];
-  $session = $_POST['session'];
-  $tcNo = $_POST['tcNdate'];
-  $mobile = $_POST['mobile'];
-  $studentId = $_POST['studentId'];
-  $studentUid = $_POST['studentUid'];
-  $hostel = $_POST['hostel'];
-  $transfer = $_POST['transfer'];
-
-  $sql = $db->link->query("REPLACE INTO `register_form`(`admission_date`, `birth_id`, `student_name`, `father_name`, `father_id`, `mother_name`, `mother_id`, `religion`, `gender`, `date_of_birth`, `nationality`, `present_address`, `parmanent_address`, `admission_date_age`, `prev_school`, `prev_class`, `desire_class`, `desire_group`, `session`, `tc_no`, `mobile`, `student_id`, `student_uid`, `hostel`, `transfer`) VALUES ('$admissionDate','$birthId','$studentName','$fatherName','$fatherId','$motherName','$motherId','$religion','$gender','$birthDate','$nationality','$presentAddress','$parmanentAddress','$ageOfAdmission','$prevSchool','$prevClass','$desireClass','$desireGroup','$session','$tcNo','$mobile','$studentId','$studentUid','$hostel','$transfer')");
-  if($sql){   
-    $path = "img/studentImg/$studentId.jpg";
-    move_uploaded_file($_FILES['student_image']['tmp_name'], $path);
-    echo "Update Successfully";
-  }else{
-    echo "Update Unsuccessful";
-  }
-}
-
-if(isset($_GET["edit"]))
-  {
-    $select = $db->link->query("SELECT * FROM register_form where `id` = '".$_GET["edit"]."'");
-    $fetch=$select->fetch_array(); 
-  }
-
-if(isset($_GET["del"]))
-{
-  $del = $db->link->query("DELETE FROM register_form where `id` = '".$_GET["del"]."'");
-      if($del)
-      {
-          $path="img/studentImg/".$_GET["del"].".jpg";
-          unlink($path);
-          echo "Delete Successfully";
-      }
-      else 
-      {
-          echo "Delete Unsuccessful";
-      }
-      echo "<script>location='/holycrescent';</script>";
-        
-}
+include('add.php');
+include('update.php');
+include('edit.php');
+include('delete.php');
 		
 ?>
 
@@ -142,7 +52,7 @@ if(isset($_GET["del"]))
         </div>
         <div class="col-7">
           <h2 class="display-5">Holy Crescent School</h2>
-          <p>Shahid Shahid ullah Sarak, Feni sadar, Feni.</p>
+          <p>Shahid Shahidullah Kaisar Road, Feni Sadar, Feni.</p>
           <span>
             <ul>
               <li>EIIN: 131302</li>
@@ -167,7 +77,7 @@ if(isset($_GET["del"]))
         <!-- row 2 -->
         <div class="row">
           <div class="col-12 col-md-4">
-            <label for="birthId">Birth ID No:</label>
+            <label for="birthId">Birth Registration No:</label>
           </div>
           <div class="col-12 col-md-8">
             <input type="text" class="form-control" name="birthId" value="<?php print $fetch[2] ?>">
@@ -194,10 +104,10 @@ if(isset($_GET["del"]))
          <!-- row 5 -->
          <div class="row">
           <div class="col-12 col-md-4">
-            <label for="">Father's ID:</label>
+            <label for="">Father's NID:</label>
           </div>
           <div class="col-12 col-md-8">
-            <input type="text" class="form-control" name="fatherId" value="<?php print $fetch[5] ?>">
+            <input type="file" class="form-control" name="fatherId">
           </div>
         </div>
          <!-- row 6 -->
@@ -212,10 +122,10 @@ if(isset($_GET["del"]))
          <!-- row 7 -->
          <div class="row">
           <div class="col-12 col-md-4">
-            <label for="motherId">Mother's ID:</label>
+            <label for="motherId">Mother's NID:</label>
           </div>
           <div class="col-12 col-md-8">
-            <input type="text" class="form-control" name="motherId" value="<?php print $fetch[7] ?>">
+            <input type="file" class="form-control" name="motherId">
           </div>
         </div>
         <!-- row 8 -->
@@ -264,25 +174,62 @@ if(isset($_GET["del"]))
             <input type="text" class="form-control" name="nationality" value="<?php print $fetch[11] ?>">
           </div>
         </div>
-        <!-- row 11 -->
         <div class="row">
           <div class="col-12 col-md-4">
-            <label for="presentAddress">Present Address:</label>
+            <label>Present Address:</label>
           </div>
-          <div class="col-12 col-md-8">
-            <input type="text" class="form-control" name="presentAddress" value="<?php print $fetch[12] ?>">
+          <div class="col-12 col-md-8" style="padding: 0;">
+            <div class="row">
+              <div class="col-2">
+                <input type="text" class="form-control" name="house" placeholder="House No">
+              </div>
+              <div class="col-2">
+                <input type="text" class="form-control" name="village" placeholder="Village">
+              </div>
+              <div class="col-2">
+                <input type="text" class="form-control" name="postOffice" placeholder="Post Office">
+              </div>
+              <div class="col-2">
+                <input type="text" class="form-control" name="postCode" placeholder="Post Code">
+              </div>
+              <div class="col-2">
+                <input type="text" class="form-control" name="thana" placeholder="Thana">
+              </div>
+              <div class="col-2">
+                <input type="text" class="form-control" name="district" placeholder="District">
+              </div>
+            </div>
           </div>
         </div>
-        <!-- row 12 -->
+        <!-- Parmanent address -->
         <div class="row">
           <div class="col-12 col-md-4">
-            <label for="parmanentAddress">Parmanent Address:</label>
+            <label>Parmanent Address:</label>
           </div>
-          <div class="col-12 col-md-8">
-            <input type="text" class="form-control" name="parmanentAddress" value="<?php print $fetch[13] ?>">
+          <div class="col-12 col-md-8" style="padding: 0;">
+            <div class="row">
+              <div class="col-2">
+                <label for="pHouse">House No</label>
+                <input type="text" class="form-control" name="pHouse" value="<?php print $fetch[16] ?>">
+              </div>
+              <div class="col-2">
+                <input type="text" class="form-control" name="pVillage" placeholder="Village">
+              </div>
+              <div class="col-2">
+                <input type="text" class="form-control" name="pPostOffice" placeholder="Post Office">
+              </div>
+              <div class="col-2">
+                <input type="text" class="form-control" name="pPostCode" placeholder="Post Code">
+              </div>
+              <div class="col-2">
+                <input type="text" class="form-control" name="pThana" placeholder="Thana">
+              </div>
+              <div class="col-2">
+                <input type="text" class="form-control" name="pDistrict" placeholder="District">
+              </div>
+            </div>
           </div>
         </div>
-        <!-- row 13 -->
         <div class="row">
           <div class="col-12 col-md-4">
             <label for="ageOfAdmission">Age of Admission Date:</label>
@@ -344,7 +291,7 @@ if(isset($_GET["del"]))
             <label for="tcNdate">T.C No and Date:</label>
           </div>
           <div class="col-12 col-md-8">
-            <input type="text" class="form-control" name="tcNdate" value="<?php print $fetch[20] ?>">
+            <input type="file" class="form-control" name="tc">
           </div>
         </div>
          <!-- row 20 -->
@@ -390,8 +337,8 @@ if(isset($_GET["del"]))
           <div class="col-12 col-md-3">
           <div class="form-group">
               <select class="form-control" id="hostel" name="hostel">
-                <option value="yes">Yes</option>
                 <option value="no">No</option>
+                <option value="yes">Yes</option>
               </select>
             </div>
           </div>
@@ -401,8 +348,8 @@ if(isset($_GET["del"]))
           <div class="col-12 col-md-3">
             <div class="form-group">
                 <select class="form-control" id="transfer" name="transfer">
-                  <option value="yes">Yes</option>
                   <option value="no">No</option>
+                  <option value="yes">Yes</option>
                 </select>
               </div>
             </div>
