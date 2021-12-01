@@ -2,6 +2,7 @@
 
 if(isset($_POST["add"]))
   {
+    // took the value of my all input
     $admissionDate = $_POST['admissionDate'];
     $birthId = $_POST['birthId'];
     $studentName = $_POST['studentName'];
@@ -35,6 +36,7 @@ if(isset($_POST["add"]))
     $hostel = $_POST['hostel'];
     $transfer = $_POST['transfer'];
 
+    // working with images name
     $father_id   = $_FILES['fatherId']['name'];
     $mother_id  = $_FILES['motherId']['name'];
     $tc  = $_FILES['tc']['name'];
@@ -44,13 +46,15 @@ if(isset($_POST["add"]))
     $tmp_tc  = $_FILES['tc']['tmp_name'];
     $tmp_student_name  = $_FILES['student_image']['tmp_name'];
 
-    
+    // define my file path with extension
     $path0 = "img/fatherId/$studentId.jpg";
     $path1 = "img/motherId/$studentId.jpg";
     $path2 = "img/tc/$studentId.jpg";
     $path3 = "img/studentImg/$studentId.jpg";
 
+    // SQL syntex
     $sql = $db->link->query("INSERT INTO `register_form`(`admission_date`, `birth_id`, `student_name`, `father_name`, `mother_name`, `religion`, `gender`, `date_of_birth`, `nationality`, `house`, `village`, `postOffice`, `postCode`, `thana`, `district`, `pHouse`, `pVillage`, `pPostOffice`, `pPostCode`, `pThana`, `pDistrict`, `admission_date_age`, `prev_school`, `prev_class`, `desire_class`, `desire_group`, `session`, `mobile`, `student_id`, `student_uid`, `hostel`, `transfer`, `fatherId`, `motherId`, `tc`, `studentimage`) VALUES ('$admissionDate','$birthId','$studentName','$fatherName','$motherName','$religion','$gender','$birthDate','$nationality', '$house', '$village', '$postOffice', '$postCode', '$thana', '$district', '$pHouse', '$pVillage', '$pPostOffice', '$pPostCode', '$pThana', '$pDistrict', '$ageOfAdmission','$prevSchool','$prevClass','$desireClass','$desireGroup','$session','$mobile','$studentId','$studentUid','$hostel','$transfer','$father_id', '$mother_id', '$tc', '$student_image')");
+    // logic to add data
     if($sql){   
       move_uploaded_file($tmp_father_id, $path0);
       move_uploaded_file($tmp_mother_id, $path1);
