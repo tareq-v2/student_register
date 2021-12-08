@@ -24,10 +24,15 @@ $db = new dbconnection();
     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" referrerpolicy="no-referrer"></script>
     <title>Register Students</title>
+    <style>
+      th, td{
+        font-size: 11px;
+      }
+    </style>
   </head>
   <body>
   <div class="container-fluid">
-    <header class="container px-0">
+    <!-- <header class="container px-0">
       <div class="row justify-content-center bg-info m-2">
         <div class="col-3 d-none d-md-block">
           <a href="index.php"><img src="img/logoSDMS2015.png" alt="logo"></a>
@@ -43,7 +48,7 @@ $db = new dbconnection();
           </span>
         </div>
       </div>
-    </header>
+    </header> -->
    	 <div class="row">
 		<div class="col-9">
 			<div class="form-title-layer m-3">
@@ -142,67 +147,29 @@ $db = new dbconnection();
               <td><?php echo $fetch[30];?></td>
               <td><?php echo $fetch[31];?></td>
               <td><?php echo $fetch[32];?></td>
-              <td><img src="img/fatherId/<?php echo $fetch[0];?>.jpg" height="50" width="50"></td>
-              <td><img src="img/motherId/<?php echo $fetch[0];?>.jpg" height="50" width="50"></td>
-              <td><img src="img/tc/<?php echo $fetch[0];?>.jpg" height="50" width="50"></td>
-              <td><img src="img/studentImg/<?php echo $fetch[22];?>.jpg" height="50" width="50"></td>
+              <td>
+                <img src="img/fatherId/<?php echo $fetch[29];?>.jpg" height="50" width="50"></td>
+              <td>
+                <img src="img/motherId/<?php echo $fetch[29];?>.jpg" height="50" width="50">
+              </td>
+              <td>
+                <img src="img/tc/<?php echo $fetch[29];?>.jpg" height="50" width="50">
+              </td>
+              <td>
+                <img src="img/studentImg/<?php echo $fetch[29];?>.jpg" height="50" width="50">
+              </td>
               <td>
                   <a href="index.php?edit=<?php echo $fetch[0];?>" style="display: block; margin-bottom: 2px;" class="btn btn-sm btn-info">Edit</a>
-                  <a href="index.php?edit=<?php echo $fetch[0];?>" style="display: block; margin-bottom: 2px;" class="btn btn-sm btn-info">View</a>
+                  <a href="singleView.php?view=<?php echo $fetch[0];?>" style="display: block; margin-bottom: 2px;" class="btn btn-sm btn-info">View</a>
                   <a href="index.php?del=<?php echo $fetch[0];?>" type="button" class="btn btn-sm btn-warning">Delete</a>
               </td>
           </tr>
           <?php
           }
           ?>
-          <tfoot>
-          <tr>
-              <th>ID</th>
-              <th>Admission Date</th>
-              <th>Birth Reg. No</th>
-              <th>Student's Name</th>
-              <th>Father's Name</th>
-              <th>Mother's Name</th>
-              <th>Religion</th>
-              <th>Gender</th>
-              <th>Date of Birth</th>
-              <th>Nationality</th>
-              <th>House</th>
-              <th>Village</th>
-              <th>Post Office</th>
-              <th>Post Code</th>
-              <th>Thana</th>
-              <th>District</th>
-              <th>Parmanent House</th>
-              <th>Parmanent Village</th>
-              <th>Parmanent Post Office</th>
-              <th>Parmanent Post Code</th>
-              <th>Parmanent Thana</th>
-              <th>Parmanent District</th>
-              <th>Age of Admission Date</th>
-              <th>Previous School Name</th>
-              <th>Previous Class Name</th>
-              <th>Admission Desire Class</th>
-              <th>Admission Desire Group</th>
-              <th>Session</th>
-              <th>Mobile</th>
-              <th>Student ID</th>
-              <th>Student UID</th>
-              <th>Hostel</th>
-              <th>Transport Service</th>
-              <th>Father's ID</th>
-              <th>Mother's ID</th>
-              <th>T.C</th>
-              <th>Student Image</th>
-              <th>Action</th>
-          </tr>
-          </tfoot>
     </table>
     </div>
    </div>
-   <footer style="background-color: #000; padding: 10px 0; margin-top: 20px;">
-
-</footer>
    
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"></script>
   </body>

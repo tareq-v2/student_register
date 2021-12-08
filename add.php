@@ -54,12 +54,13 @@ if(isset($_POST["add"]))
 
     // SQL syntex
     $sql = $db->link->query("INSERT INTO `register_form`(`admission_date`, `birth_id`, `student_name`, `father_name`, `mother_name`, `religion`, `gender`, `date_of_birth`, `nationality`, `house`, `village`, `postOffice`, `postCode`, `thana`, `district`, `pHouse`, `pVillage`, `pPostOffice`, `pPostCode`, `pThana`, `pDistrict`, `admission_date_age`, `prev_school`, `prev_class`, `desire_class`, `desire_group`, `session`, `mobile`, `student_id`, `student_uid`, `hostel`, `transfer`, `fatherId`, `motherId`, `tc`, `studentimage`) VALUES ('$admissionDate','$birthId','$studentName','$fatherName','$motherName','$religion','$gender','$birthDate','$nationality', '$house', '$village', '$postOffice', '$postCode', '$thana', '$district', '$pHouse', '$pVillage', '$pPostOffice', '$pPostCode', '$pThana', '$pDistrict', '$ageOfAdmission','$prevSchool','$prevClass','$desireClass','$desireGroup','$session','$mobile','$studentId','$studentUid','$hostel','$transfer','$father_id', '$mother_id', '$tc', '$student_image')");
+
     // logic to add data
     if($sql){   
       move_uploaded_file($tmp_father_id, $path0);
       move_uploaded_file($tmp_mother_id, $path1);
-      move_uploaded_file($tc, $path2);
-      move_uploaded_file($student_image, $path3);
+      move_uploaded_file($tmp_tc, $path2);
+      move_uploaded_file($tmp_student_name, $path3);
       echo "Add Successfully";
     }else{
       echo "Add Unsuccessful";

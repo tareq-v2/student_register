@@ -27,6 +27,9 @@ include('delete.php');
     .row{
       margin: 10px 0;
     }
+    .multipartData label{
+    font-size: 11px !important;
+}
     @media only screen
       and (min-device-width : 320px)
       and (max-device-width : 768px) {
@@ -162,7 +165,7 @@ include('delete.php');
             <label for="birthDate">Date of Birth:</label>
           </div>
           <div class="col-12 col-md-8">
-            <input type="date" class="form-control" name="birthDate" value="<?php print $fetch[10] ?>">
+            <input type="date" class="form-control" name="birthDate">
           </div>
         </div>
         <!-- row 10 -->
@@ -171,40 +174,46 @@ include('delete.php');
             <label for="nationality">Nationality:</label>
           </div>
           <div class="col-12 col-md-8">
-            <input type="text" class="form-control" name="nationality" value="<?php print $fetch[11] ?>">
+            <input type="text" class="form-control" name="nationality" value="<?php print $fetch[9] ?>">
           </div>
         </div>
-        <div class="row">
+        <div class="row multipartData">
           <div class="col-12 col-md-4">
-            <label>Present Address:</label>
+            <label style="font-size: 15px !important; margin-top: 25px;">Present Address:</label>
           </div>
           <div class="col-12 col-md-8" style="padding: 0;">
             <div class="row">
               <div class="col-2">
-                <input type="text" class="form-control" name="house" placeholder="House No">
+                <label for="house">House</label>
+                <input type="text" class="form-control" name="house" value="<?php print $fetch[10] ?>">
               </div>
               <div class="col-2">
-                <input type="text" class="form-control" name="village" placeholder="Village">
+                <label for="village">Village</label>
+                <input type="text" class="form-control" name="village" value="<?php print $fetch[11] ?>">
               </div>
               <div class="col-2">
-                <input type="text" class="form-control" name="postOffice" placeholder="Post Office">
+                <label for="postOffice">Post Office</label>
+                <input type="text" class="form-control" name="postOffice" value="<?php print $fetch[12] ?>">
               </div>
               <div class="col-2">
-                <input type="text" class="form-control" name="postCode" placeholder="Post Code">
+                <label for="postCode">Post Code</label>
+                <input type="text" class="form-control" name="postCode" value="<?php print $fetch[13] ?>">
               </div>
               <div class="col-2">
-                <input type="text" class="form-control" name="thana" placeholder="Thana">
+                <label for="thana">Thana</label>
+                <input type="text" class="form-control" name="thana" value="<?php print $fetch[14] ?>">
               </div>
               <div class="col-2">
-                <input type="text" class="form-control" name="district" placeholder="District">
+                <label for="district">District</label>
+                <input type="text" class="form-control" name="district" value="<?php print $fetch[15] ?>">
               </div>
             </div>
           </div>
         </div>
         <!-- Parmanent address -->
-        <div class="row">
+        <div class="row multipartData">
           <div class="col-12 col-md-4">
-            <label>Parmanent Address:</label>
+            <label style="font-size: 15px !important; margin-top: 25px;">Parmanent Address:</label>
           </div>
           <div class="col-12 col-md-8" style="padding: 0;">
             <div class="row">
@@ -213,19 +222,24 @@ include('delete.php');
                 <input type="text" class="form-control" name="pHouse" value="<?php print $fetch[16] ?>">
               </div>
               <div class="col-2">
-                <input type="text" class="form-control" name="pVillage" placeholder="Village">
+                <label for="pVillage">Parmanent Village</label>
+                <input type="text" class="form-control" name="pVillage" value="<?php print $fetch[17] ?>">
               </div>
               <div class="col-2">
-                <input type="text" class="form-control" name="pPostOffice" placeholder="Post Office">
+                <label for="pPostOffice">Parmanent Post Office</label>
+                <input type="text" class="form-control" name="pPostOffice" value="<?php print $fetch[18] ?>">
               </div>
               <div class="col-2">
-                <input type="text" class="form-control" name="pPostCode" placeholder="Post Code">
+                <label for="pPostcode">Parmanent Post Code</label>
+                <input type="text" class="form-control" name="pPostCode" value="<?php print $fetch[19] ?>">
               </div>
               <div class="col-2">
-                <input type="text" class="form-control" name="pThana" placeholder="Thana">
+                <label for="pthana">Parmanent thana</label>
+                <input type="text" class="form-control" name="pThana" value="<?php print $fetch[20] ?>">
               </div>
               <div class="col-2">
-                <input type="text" class="form-control" name="pDistrict" placeholder="District">
+                <label for="pDistrict">Parmanent District</label>
+                <input type="text" class="form-control" name="pDistrict" value="<?php print $fetch[21] ?>">
               </div>
             </div>
           </div>
@@ -235,7 +249,7 @@ include('delete.php');
             <label for="ageOfAdmission">Age of Admission Date:</label>
           </div>
           <div class="col-12 col-md-8">
-            <input type="text" class="form-control" name="ageOfAdmission" value="<?php print $fetch[14] ?>">
+            <input type="text" class="form-control" name="ageOfAdmission" value="<?php print $fetch[22] ?>">
           </div>
         </div>
         <!-- row 14 -->
@@ -244,7 +258,7 @@ include('delete.php');
             <label for="prevSchool">Previous School Name:</label>
           </div>
           <div class="col-12 col-md-8">
-            <input type="text" class="form-control" name="prevSchool" value="<?php print $fetch[15] ?>">
+            <input type="text" class="form-control" name="prevSchool" value="<?php print $fetch[23] ?>">
           </div>
         </div>
          <!-- row 15 -->
@@ -253,7 +267,7 @@ include('delete.php');
             <label for="prevClass">Previous Class Name:</label>
           </div>
           <div class="col-12 col-md-8">
-            <input type="text" class="form-control" name="prevClass" value="<?php print $fetch[16] ?>">
+            <input type="text" class="form-control" name="prevClass" value="<?php print $fetch[24] ?>">
           </div>
         </div>
         <!-- row 16 -->
@@ -262,7 +276,7 @@ include('delete.php');
             <label for="desireClass">Admission Desire Class:</label>
           </div>
           <div class="col-12 col-md-8">
-            <input type="text" class="form-control" name="desireClass" value="<?php print $fetch[17] ?>">
+            <input type="text" class="form-control" name="desireClass" value="<?php print $fetch[25] ?>">
           </div>
         </div>
         <!-- row 17 -->
@@ -271,7 +285,7 @@ include('delete.php');
             <label for="desireGroup">Admission Desire Group:</label>
           </div>
           <div class="col-12 col-md-8">
-            <input type="text" class="form-control" name="desireGroup" value="<?php print $fetch[18] ?>">
+            <input type="text" class="form-control" name="desireGroup" value="<?php print $fetch[26] ?>">
           </div>
         </div>
          <!-- row 18 -->
@@ -280,7 +294,7 @@ include('delete.php');
             <label for="session">Session:</label>
           </div>
           <div class="col-12 col-md-8">
-            <input type="text" class="form-control" name="session" value="<?php print $fetch[19] ?>">
+            <input type="text" class="form-control" name="session" value="<?php print $fetch[27] ?>">
           </div>
         </div>
          <!-- row 19 -->
@@ -300,7 +314,7 @@ include('delete.php');
             <label for="mobile">Mobile:</label>
           </div>
           <div class="col-12 col-md-8">
-            <input type="text" class="form-control" name="mobile" value="<?php print $fetch[21] ?>">
+            <input type="text" class="form-control" name="mobile" value="<?php print $fetch[28] ?>">
           </div>
         </div>
         <!-- row 21 -->
@@ -309,7 +323,7 @@ include('delete.php');
             <label for="studentId">Student ID:</label>
           </div>
           <div class="col-12 col-md-8">
-            <input type="text" class="form-control" name="studentId" value="<?php print $fetch[22] ?>">
+            <input type="text" class="form-control" name="studentId" value="<?php print $fetch[29] ?>">
           </div>
         </div>
         <!-- row 22 -->
@@ -318,7 +332,7 @@ include('delete.php');
             <label for="studentUid">Student UID:</label>
           </div>
           <div class="col-12 col-md-8">
-            <input type="text" class="form-control" name="studentUid" value="<?php print $fetch[23] ?>">
+            <input type="text" class="form-control" name="studentUid" value="<?php print $fetch[30] ?>">
           </div>
         </div>
         <div class="row">
@@ -354,6 +368,7 @@ include('delete.php');
               </div>
             </div>
           </div>
+          
         </div>
         <div class="container">
         <div class="row justify-content-end">
@@ -370,15 +385,12 @@ include('delete.php');
 			</div>
     </form>
   </div>
-<footer style="background-color: #000; padding: 10px 0; margin-top: 20px;">
-  <h6 class="text-center" style="color: #fff;">Developed By <span style="color: orange; font-weight: bold;">SBIT</span></h6>
-</footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-  function viewStudent()
-		{
-      window.location.href = 'viewstudent.php';
-		}
-</script>
+      function viewStudent()
+        {
+          window.location.href = 'viewstudent.php';
+        }
+    </script>
   </body>
 </html>

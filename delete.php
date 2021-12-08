@@ -14,7 +14,7 @@ if(isset($_GET["del"]))
             unlink($path2);
             unlink($path3);
             echo "Delete Successfully";
-            echo "<script>location='/student_register';</script>";
+            echo "<script>location='/student_register/viewstudent.php';</script>";
         }
         else 
         {
